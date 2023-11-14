@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="jogador" id="jogador"><h1>Player</h1></div>
+    <script>
+        var x = 0;
+        var y = 0;
+
+      class Player {
+        constructor(div) {
+          var Player = div;
+        }
+        moverUp(){
+            y = y - 10
+            document.getElementById('jogador').style.top= y+'px'
+            return 
+        };
+        moverDown() {
+            y = y + 10
+            document.getElementById('jogador').style.top = y+'px'
+        }
+        moverLeft() {
+            x = x - 10
+            document.getElementById('jogador').style.left = x+'px'
+        }
+        moverRight() {
+            x = x + 10
+            document.getElementById('jogador').style.left = x+'px'
+        }
+      }
+
+      var div = document.getElementById("jogador");
+
+      var player = new Player(document.getElementById("jogador"));
+    
+      document.onkeydown = function (e) {
+        if (event.keyCode == 37) {
+          player.moverLeft();
+        } else if (event.keyCode == 38) {
+          player.moverUp();
+        } else if (event.keyCode == 39) {
+          player.moverRight();
+        } else if (event.keyCode == 40) {
+          player.moverDown();
+        }
+      };
+    </script>
+  </body>
+</html>
